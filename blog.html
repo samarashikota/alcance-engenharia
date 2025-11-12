@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Alcance Engenharia</title>
+    
+    <!-- Links existentes (CSS, Fonts, Ícones) -->
+    <link rel="icon" type="image/x-icon" href="imagens/favicon-alcance.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Ícone flutuante do WhatsApp -->
+    <div class="pulse"></div>
+    <div class="pulse"></div>
+    <div class="pulse"></div>
+    <a style="color: #fff" target="blank" href="https://wa.me/5511983662788?text=Quero saber mais sobre os serviços da Alcance" target="_blank" class="whatsapp-info pulse"> <span class="whatsapp">
+      <i class="fa fa-whatsapp"></i>
+    </span>
+    </a>
+</head>
+<body>
+
+    <!-- ====================
+         HEADER (MODIFICADO COM A NOVA CLASSE)
+         ==================== -->
+    <header class="header header-solid">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><img src="imagens/logo_white_ALCANCE.png" alt="Logo Alcance Engenharia" style="width:30%;">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#destaques">Destaques</a></li>
+                    <li><a href="blog.html">Blog</a></li> <!-- Link atualizado -->
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ====================
+             HERO DO BLOG
+             ==================== -->
+        <section class="hero-blog" id="inicio">
+            <div class="hero-content">
+                <h1 class="fade-in">Nosso Blog</h1>
+                <p class="fade-in">Fique por dentro das novidades e inovações da engenharia civil.</p>
+            </div>
+        </section>
+
+        <!-- ====================
+             FEED DE POSTAGENS
+             ==================== -->
+        <section class="blog-feed section-padding">
+            <div class="container">
+
+                <!-- Card de Postagem 1 (Mais Recente) -->
+                <article class="blog-post-card animate-on-scroll">
+                    <div class="card-image">
+                        <a href="postagem1.html">
+                            <img src="imagens/telhado-verde.webp" alt="Telhado Verde">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-info">Sustentabilidade • 10 de Novembro, 2025</span>
+                        <h2 class="card-title">
+                            <a href="postagem1.html">A Revolução Silenciosa dos Telhados Verdes</a>
+                        </h2>
+                        <p class="card-excerpt">Os telhados verdes vão muito além da estética. Eles são uma ferramenta poderosa para a gestão da água da chuva, isolamento térmico e... (continue lendo)</p>
+                        <a href="postagem1.html" class="btn btn-secondary">Leia Mais</a>
+                    </div>
+                </article>
+
+
+                
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====================
+         FOOTER (O MESMO DA HOME)
+         ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="imagens/logo_white_ALCANCE.png" alt="Logo Alcance Engenharia" style="max-width: 40%;">
+                    <h3>Alcance Engenharia</h3>
+                    <p>Inovação em Engenharia Civil e Soluções Sustentáveis.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li> <!-- Link atualizado -->
+                        <li><a href="index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="blog.html">Blog</a></li> <!-- Link atualizado -->
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/alcance.engenharia/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/engenharia.alcance/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alcance Engenharia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JS (O MESMO DA HOME) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -19,6 +19,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -126,26 +127,33 @@ img {
 /* ====================
    HEADER & NAVEGAÇÃO
    ==================== */
+
 .header {
-    background-color: var(--white-color);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    background-color: transparent;
+    position: absolute;
+    z-index: 1000; 
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
+    min-height: 100px; 
+    padding-top: 10px; 
 }
 
 .logo {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+.logo img {
+    width: 250px !important; 
+    height: auto;
 }
 
 .nav-links {
@@ -158,8 +166,7 @@ img {
 
 .nav-links a {
     font-weight: 600;
-    color: var(--text-color);
-    padding: 0.5rem;
+    color: #ffffff;
     transition: color 0.3s ease;
 }
 
@@ -172,22 +179,22 @@ img {
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: var(--dark-color);
+    color: #ffffff;
     cursor: pointer;
 }
 
 /* ====================
    SEÇÃO 1: HERO
    ==================== */
+
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('sao-paulo.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('imagens/sao-paulo.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--white-color);
-    padding-top: 70px; /* offset da navbar */
 }
 
 .hero-content {
@@ -259,6 +266,7 @@ img {
 /* ====================
    SEÇÃO 4: DESTAQUES
    ==================== */
+
 .featured-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -297,6 +305,9 @@ img {
 }
 
 .featured-image img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
@@ -310,6 +321,7 @@ img {
 /* ====================
    SEÇÃO 5: POR QUE ESCOLHER-NOS?
    ==================== */
+
 .why-us-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -479,12 +491,16 @@ img {
     }
 
     /* --- Navbar Mobile --- */
+    .logo img {
+        width: 200px !important; 
+    }
+    
     .nav-links {
         display: none;
         flex-direction: column;
         background-color: var(--white-color);
         position: absolute;
-        top: 70px; /* altura da navbar */
+        top: 180px; 
         left: 0;
         width: 100%;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
@@ -503,6 +519,7 @@ img {
     .nav-links a {
         display: block;
         padding: 1rem;
+        color: var(--dark-color); 
     }
 
     .hamburger {
@@ -510,6 +527,10 @@ img {
     }
 
     /* --- Hero --- */
+    .hero-content {
+        padding: 0 1.5rem;
+    }
+    
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -518,20 +539,36 @@ img {
     }
 
     /* --- Seções --- */
-    .about-grid,
-    .featured-item,
-    .featured-item.reverse {
+    .about-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Inverte a ordem da imagem no mobile para .reverse */
-    .featured-item.reverse .featured-image {
-        grid-row: 1 / 2;
+    /* CORREÇÃO DEFINITIVA: Usando FLEXBOX e ORDER */
+    .featured-item,
+    .featured-item.reverse {
+        display: flex; /* Mudar de grid para flex */
+        flex-direction: column; /* Empilhar verticalmente */
     }
 
+    .featured-item .featured-text,
     .featured-item.reverse .featured-text {
-        grid-row: 2 / 3;
+        order: 1; /* 1. O texto vem primeiro */
+        text-align: center; /* Centraliza o texto como pedido */
     }
+    
+    .featured-item .featured-image,
+    .featured-item.reverse .featured-image {
+        order: 2; /* 2. A imagem vem depois */
+        height: auto; 
+        margin-top: 1.5rem; 
+    }
+    
+    .featured-image img {
+        height: auto; /* Garante que a imagem use sua altura natural */
+        object-fit: unset; /* Reseta o 'cover' do desktop */
+    }
+    /* Fim da Correção */
+
 
     .services-grid,
     .why-us-grid {
@@ -550,7 +587,24 @@ img {
     .footer-logo p {
         margin: 0 auto 1rem auto;
     }
+    
+    .footer-logo img {
+        margin: 0 auto 1rem; 
+    }
+    
+    a.wp {
+        width: 90%; 
+        grid-template-columns: 45px 1fr; 
+    }
 }
+
+/* Espaçamento do Hero apenas no Desktop */
+@media (min-width: 769px) {
+    .hero-content h1 {
+        padding-top: 60px; /* Adiciona 60px de espaço acima do h1 */
+    }
+}
+
 
 a.wp {
   font-family: Poppins;
@@ -567,9 +621,9 @@ a.wp {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 0 3px;
-  
+ 
   text-decoration: none;
-  
+ 
   cursor: pointer;
 }
 
@@ -661,3 +715,189 @@ a.wp {
     content: "\f234";
 }
 
+/* ====================
+   ESTILOS DO BLOG (NOVOS)
+   ==================== */
+
+/* Header sólido para páginas internas */
+.header-solid {
+    position: relative; /* Faz o header ocupar espaço e empurrar o conteúdo */
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Hero da Página do Blog (blog.html) */
+.hero-blog {
+    min-height: 40vh; 
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('imagens/sao-paulo.jpg') no-repeat center center/cover; /* <-- MUDANÇA AQUI */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+}
+
+.hero-blog h1 {
+    font-size: 3rem;
+    color: var(--white-color);
+}
+
+.hero-blog p {
+    font-size: 1.2rem;
+    color: var(--white-color);
+    font-weight: 300;
+}
+
+/* Feed de Postagens (blog.html) */
+.blog-feed .container {
+    max-width: 800px; 
+}
+
+.blog-post-card {
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    margin-bottom: 3rem;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-image img {
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-info {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-title a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: var(--primary-color);
+}
+
+.card-excerpt {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* ====================
+   ESTILOS DA POSTAGEM (NOVOS)
+   ==================== */
+
+/* Hero da Postagem (postagem.html) */
+.post-hero {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 4rem 0 4rem 0; /* Padding reduzido pois o header não é mais 'absolute' */
+}
+
+.post-hero .container {
+    max-width: 800px;
+}
+
+.post-hero-category {
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.post-hero-title {
+    font-size: 2.8rem;
+    color: var(--white-color);
+    margin: 0.5rem 0;
+}
+
+.post-meta {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Conteúdo da Postagem (postagem.html) */
+.post-content .container {
+    max-width: 800px; 
+}
+
+.post-featured-image {
+    margin-bottom: 2.5rem;
+}
+
+.post-featured-image img {
+    border-radius: 10px;
+}
+
+.post-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-body h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin: 2.5rem 0 1.5rem 0;
+}
+
+.post-body ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 3rem 0;
+}
+
+.back-link-container {
+    text-align: center;
+}
+
+/* Ajustes mobile para o blog */
+@media (max-width: 768px) {
+    .hero-blog h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .post-hero {
+        padding: 3rem 0; /* Padding mobile para o hero da postagem */
+    }
+    
+    .post-hero-title {
+        font-size: 2rem;
+    }
+    
+    .post-body {
+        font-size: 1rem;
+    }
+}
